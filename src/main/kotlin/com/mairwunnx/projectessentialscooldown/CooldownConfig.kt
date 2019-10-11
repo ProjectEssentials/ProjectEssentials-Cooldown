@@ -1,7 +1,6 @@
 package com.mairwunnx.projectessentialscooldown
 
 import com.mairwunnx.projectessentialscooldown.models.CooldownModel
-import com.mairwunnx.projectessentialscore.extensions.empty
 import com.mairwunnx.projectessentialscore.helpers.MOD_CONFIG_FOLDER
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
@@ -18,22 +17,22 @@ internal object CooldownConfig {
 
     internal fun load() {
         logger.info("    - loading command cooldown configuration ...")
-        var checkingCooldown = String.empty
         try {
             val configRaw = File(COOLDOWNS_CONFIG).readText()
             config = Json.parse(CooldownModel.serializer(), configRaw)
             logger.info("    - loaded cooldowns (${config.commandCooldowns.size})")
             config.commandCooldowns.forEach {
-                checkingCooldown = it
-                val command = it.split("=")[0]
-                val cooldown = it.split("=")[1]
-                logger.info("        - command: ${command}; cooldown: $cooldown")
+                try {
+                    val command = it.split("=")[0]
+                    val cooldown = it.split("=")[1]
+                    logger.info("        - command: ${command}; cooldown: $cooldown")
+                } catch (_: IndexOutOfBoundsException) {
+                    logger.error("Cooldown $it loaded with error, please check your configuration.")
+                }
             }
-        } catch (ex: FileNotFoundException) {
+        } catch (_: FileNotFoundException) {
             logger.error("Configuration file ($COOLDOWNS_CONFIG) not found!")
             logger.warn("The default configuration will be used.")
-        } catch (index: IndexOutOfBoundsException) {
-            logger.error("Cooldown $checkingCooldown loaded with error, please check your configuration.")
         }
     }
 
