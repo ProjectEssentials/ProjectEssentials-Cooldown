@@ -1,0 +1,9 @@
+{
+  "project_essentials_cooldown.not_expired": "§cYou §7cannot type §cthat command for §7%s §cseconds.",
+  "project_essentials_cooldown.reload.restricted": "§cYou §7don't have permission §cto reload cooldown configuration.",
+  "project_essentials_cooldown.reload.success": "§6Cooldown configuration §7successfully §6reloaded.",
+  "project_essentials_cooldown.save.restricted": "§cYou §7don't have permission §cto save cooldown configuration.",
+  "project_essentials_cooldown.save.success": "§6Cooldown configuration §7successfully §6saved.",
+  "project_essentials_cooldown.version.restricted": "§cYou §7don't have permission §cto see cooldown module version.",
+  "project_essentials_cooldown.version.success": "          §6%s\n§cVersion: §7%s\n§cMaintainer: §7%s\n§cTarget Forge version: §7%s\n§cTarget Minecraft version: §7%s\n§cSource code: §7%s§7\n§cTelegram chat: §7%s"
+}
