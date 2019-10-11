@@ -47,7 +47,6 @@ internal class EntryPoint : EssBase() {
                     event.isCanceled = CooldownUtils.processCooldownOfCommand(
                         commandName, commandSenderNickName, event
                     )
-                    logger.info(event.isCanceled)
                     return
                 }
             } catch (_: KotlinNullPointerException) {

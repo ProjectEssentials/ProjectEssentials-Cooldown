@@ -43,6 +43,7 @@ internal object CooldownUtils {
             originalCommand != String.empty -> originalCommand
             else -> commandName
         }
+        // this logic realization mistake
         val commandCooldown: Int = cooldownsMap[commandName]
             ?: CommandsAliases.searchForAliasesForCooldown(
                 commandName, cooldownsMap
@@ -53,7 +54,10 @@ internal object CooldownUtils {
             ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals.iterator().next()]
             ?: CooldownAPI.DEFAULT_COOLDOWN
 
-        if (!CooldownAPI.getCooldownIsExpired(commandSenderNickName, command, commandCooldown)) {
+        if (CooldownAPI.getCooldownIsExpired(commandSenderNickName, command, commandCooldown)) {
+            CooldownAPI.addCooldown(commandSenderNickName, command)
+            return false
+        } else {
             logger.warn(
                 COOLDOWN_NOT_EXPIRED
                     .replace("%0", commandSenderNickName)
@@ -68,9 +72,6 @@ internal object CooldownUtils {
                 ).toInt().toString()
             )
             return true
-        } else {
-            CooldownAPI.addCooldown(commandSenderNickName, command)
-            return false
         }
     }
 }
