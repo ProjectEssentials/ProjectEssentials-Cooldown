@@ -1,5 +1,6 @@
 package com.mairwunnx.projectessentialscooldown
 
+import com.mairwunnx.projectessentialscooldown.commands.CooldownCommand
 import com.mairwunnx.projectessentialscore.EssBase
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraftforge.common.MinecraftForge
@@ -7,6 +8,7 @@ import net.minecraftforge.event.CommandEvent
 import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent
 import org.apache.logging.log4j.LogManager
 
@@ -28,6 +30,12 @@ internal class EntryPoint : EssBase() {
 
     internal companion object {
         internal lateinit var modInstance: EntryPoint
+    }
+
+    @SubscribeEvent
+    fun onServerStarting(it: FMLServerStartingEvent) {
+        logger.info("$modName starting mod loading ...")
+        CooldownCommand.register(it.server.commandManager.dispatcher)
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
