@@ -43,7 +43,7 @@ internal class EntryPoint : EssBase() {
 
     @Suppress("UNUSED_PARAMETER")
     @SubscribeEvent
-    fun onServerStopping(it: FMLServerStoppingEvent) {
+    internal fun onServerStopping(it: FMLServerStoppingEvent) {
         logger.info("Shutting down $modName mod ...")
         logger.info("    - Saving cooldown configuration ...")
         CooldownConfig.save()
