@@ -43,7 +43,6 @@ internal object CooldownUtils {
             originalCommand != String.empty -> originalCommand
             else -> commandName
         }
-        // this logic realization mistake
         val commandCooldown: Int = cooldownsMap[commandName]
             ?: CommandsAliases.searchForAliasesForCooldown(
                 commandName, cooldownsMap
@@ -53,16 +52,6 @@ internal object CooldownUtils {
             }
             ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals[0]]
             ?: CooldownAPI.DEFAULT_COOLDOWN
-
-        logger.info(cooldownsMap[commandName])
-        logger.info(CommandsAliases.searchForAliasesForCooldown(
-            commandName, cooldownsMap
-        ).let {
-            originalCommand = it.b
-            return@let it.a
-        })
-        logger.info(cooldownsMap[CooldownAPI.defaultCooldownLiterals[0]])
-        logger.info(CooldownAPI.DEFAULT_COOLDOWN)
 
         if (CooldownAPI.getCooldownIsExpired(commandSenderNickName, command, commandCooldown)) {
             CooldownAPI.addCooldown(commandSenderNickName, command)
