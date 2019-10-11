@@ -1,9 +1,6 @@
 package com.mairwunnx.projectessentialscooldown
 
 import com.mairwunnx.projectessentialscore.EssBase
-import com.mairwunnx.projectessentialscore.extensions.commandName
-import com.mairwunnx.projectessentialscore.extensions.player
-import com.mairwunnx.projectessentialspermissions.permissions.PermissionsAPI
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.CommandEvent
@@ -36,22 +33,7 @@ internal class EntryPoint : EssBase() {
     @SubscribeEvent(priority = EventPriority.HIGH)
     internal fun onPlayerCommand(event: CommandEvent) {
         if (event.parseResults.context.source.entity is ServerPlayerEntity) {
-            val commandName = event.commandName
-            val commandSender = event.player
-            val commandSenderNickName = commandSender.name.string
-            try {
-                if (
-                    !CooldownConfig.config.ignoredPlayers.contains(commandSenderNickName) &&
-                    !PermissionsAPI.hasPermission(commandSenderNickName, "ess.cooldown.bypass")
-                ) {
-                    event.isCanceled = CooldownUtils.processCooldownOfCommand(
-                        commandName, commandSenderNickName, event
-                    )
-                    return
-                }
-            } catch (_: KotlinNullPointerException) {
-                CooldownAPI.addCooldown(commandSenderNickName, commandName)
-            }
+            CooldownHandler.handle(event)
         }
     }
 

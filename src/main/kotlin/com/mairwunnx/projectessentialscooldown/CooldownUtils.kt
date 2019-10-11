@@ -51,8 +51,18 @@ internal object CooldownUtils {
                 originalCommand = it.b
                 return@let it.a
             }
-            ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals.iterator().next()]
+            ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals[0]]
             ?: CooldownAPI.DEFAULT_COOLDOWN
+
+        logger.info(cooldownsMap[commandName])
+        logger.info(CommandsAliases.searchForAliasesForCooldown(
+            commandName, cooldownsMap
+        ).let {
+            originalCommand = it.b
+            return@let it.a
+        })
+        logger.info(cooldownsMap[CooldownAPI.defaultCooldownLiterals[0]])
+        logger.info(CooldownAPI.DEFAULT_COOLDOWN)
 
         if (CooldownAPI.getCooldownIsExpired(commandSenderNickName, command, commandCooldown)) {
             CooldownAPI.addCooldown(commandSenderNickName, command)

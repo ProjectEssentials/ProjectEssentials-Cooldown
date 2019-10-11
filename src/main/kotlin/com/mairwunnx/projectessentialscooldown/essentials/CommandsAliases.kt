@@ -21,6 +21,7 @@ object CommandsAliases {
      */
     val aliases: HashMap<String, MutableList<String>> = hashMapOf()
 
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     internal fun searchForAliasesForCooldown(
         command: String,
         cooldownsMap: HashMap<String, Int>
@@ -34,9 +35,9 @@ object CommandsAliases {
                     Tuple(cooldownsMap[baseCommand]!!, baseCommand)
                 }
             }
-            Tuple(0, String.empty)
+            Tuple(null, String.empty)
         } catch (ex: KotlinNullPointerException) {
-            Tuple(0, String.empty)
+            Tuple(null, String.empty)
         }
     }
 }
