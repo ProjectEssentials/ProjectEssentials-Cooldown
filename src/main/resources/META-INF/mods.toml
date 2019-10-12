@@ -4,7 +4,7 @@ issueTrackerURL="https://github.com/ProjectEssentials/ProjectEssentials-Cooldown
 
 [[mods]]
     modId="project_essentials_cooldown"
-    version="1.14.4-1.0.0.0"
+    version="1.14.4-1.0.1.0"
     displayName="Project Essentials Cooldown"
     updateJSONURL="https://raw.githubusercontent.com/ProjectEssentials/ProjectEssentials-Cooldown/MC-1.14.4/update.json"
     displayURL="https://github.com/ProjectEssentials/ProjectEssentials-Cooldown"
