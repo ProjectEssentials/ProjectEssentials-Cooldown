@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger
 internal object CooldownUtils {
     private val logger: Logger = LogManager.getLogger()
 
-    internal fun processCooldownsCommandsList(
+    private fun processCooldownsCommandsList(
         cooldowns: List<String>
     ): HashMap<String, Int> {
         val hashMap = hashMapOf<String, Int>()
@@ -47,12 +47,15 @@ internal object CooldownUtils {
             ?: CommandsAliases.searchForAliasesForCooldown(
                 commandName, cooldownsMap
             ).let {
+                logger.info("original command: ${it.b} and cooldown: ${it.a}")
                 originalCommand = it.b
                 return@let it.a
             }
-            ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals[0]]
+            ?: cooldownsMap[CooldownAPI.defaultCooldownLiterals.iterator().next()]
             ?: CooldownAPI.DEFAULT_COOLDOWN
 
+        logger.info("Getting cooldown expired for command: $command when raw command: $commandName")
+        logger.info("Cooldown for $command when raw command $commandName is $commandCooldown")
         if (CooldownAPI.getCooldownIsExpired(commandSenderNickName, command, commandCooldown)) {
             CooldownAPI.addCooldown(commandSenderNickName, command)
             return false

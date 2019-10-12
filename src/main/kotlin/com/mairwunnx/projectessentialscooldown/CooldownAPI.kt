@@ -1,6 +1,7 @@
 package com.mairwunnx.projectessentialscooldown
 
 import com.google.common.collect.HashBasedTable
+import com.mairwunnx.projectessentialscooldown.essentials.CommandsAliases
 import java.time.Duration
 import java.time.ZonedDateTime
 import kotlin.time.ExperimentalTime
@@ -42,6 +43,16 @@ object CooldownAPI {
      */
     fun addCooldown(nickname: String, command: String) {
         removeCooldown(nickname, command)
+        CommandsAliases.aliases.keys.forEach { baseCommand ->
+            val aliasesOfCommands = CommandsAliases.aliases[baseCommand]
+            if (aliasesOfCommands != null &&
+                aliasesOfCommands.contains(command)
+            ) {
+                aliasesOfCommands.forEach {
+                    cooldownTable.put(nickname, it, ZonedDateTime.now())
+                }
+            }
+        }
         cooldownTable.put(nickname, command, ZonedDateTime.now())
     }
 

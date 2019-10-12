@@ -2,6 +2,8 @@ package com.mairwunnx.projectessentialscooldown.essentials
 
 import com.mairwunnx.projectessentialscore.extensions.empty
 import net.minecraft.util.Tuple
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 
 /**
  * Command aliases basically for working with
@@ -12,6 +14,7 @@ import net.minecraft.util.Tuple
  * @since 1.14.4-1.0.0.0
  */
 object CommandsAliases {
+    private val logger: Logger = LogManager.getLogger()
     /**
      * This stores all aliases, just add your alias here.
      *
@@ -26,18 +29,15 @@ object CommandsAliases {
         command: String,
         cooldownsMap: HashMap<String, Int>
     ): Tuple<Int?, String> {
-        return try {
-            aliases.keys.forEach { baseCommand ->
-                val aliasesOfCommands = aliases[baseCommand]
-                if (aliasesOfCommands != null &&
-                    aliasesOfCommands.contains(command)
-                ) {
-                    Tuple(cooldownsMap[baseCommand]!!, baseCommand)
-                }
+        aliases.keys.forEach { baseCommand ->
+            val aliasesOfCommands = aliases[baseCommand]
+            if (aliasesOfCommands != null &&
+                command in aliasesOfCommands
+            ) {
+                logger.info("Command: $baseCommand; Cooldown: ${cooldownsMap[baseCommand]}")
+                return Tuple(cooldownsMap[baseCommand], baseCommand)
             }
-            Tuple(null, String.empty)
-        } catch (ex: KotlinNullPointerException) {
-            Tuple(null, String.empty)
         }
+        return Tuple(null, String.empty)
     }
 }
