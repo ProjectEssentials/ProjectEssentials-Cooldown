@@ -1,0 +1,9 @@
+{
+  "project_essentials_cooldown.not_expired": "§cDu §7kannst den Befehl §cfür §7%s §cSekunden nicht benutzen.",
+  "project_essentials_cooldown.reload.restricted": "§cDu bist §7nicht berechtigt §cum Cooldown-Konfigurationen neu zu laden.",
+  "project_essentials_cooldown.reload.success": "§6Cooldown-Konfigurationen §7erfolgreich §6neu geladen.",
+  "project_essentials_cooldown.save.restricted": "§cDu bist §7nicht berechtigt §cum Cooldown-Konfigurationen zu speichern.",
+  "project_essentials_cooldown.save.success": "§6Cooldown-Konfigurationen §7erfolgreich §6gespeichert.",
+  "project_essentials_cooldown.version.restricted": "§cDu bist §7nicht berechtigt §cum die Version des Cooldown-Moduls einzusehen.",
+  "project_essentials_cooldown.version.success": "§6%s\n§cVersion: §7%s\n§cMaintainer: §7%s\n§cForge Zielversion: §7%s\n§cMinecraft Zielversion: §7%s\n§cSource Code: §7%s§7\n§cTelegram Chat: §7%s"
+}
