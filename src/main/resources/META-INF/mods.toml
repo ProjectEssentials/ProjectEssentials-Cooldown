@@ -25,13 +25,6 @@ issueTrackerURL="https://github.com/ProjectEssentials/ProjectEssentials-Cooldown
     side="BOTH"
 
 [[dependencies.projectessentialscooldown]]
-    modId="project_essentials_permissions"
-    mandatory=true
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.projectessentialscooldown]]
     modId="forge"
     mandatory=true
     versionRange="[28,)"
