@@ -1,10 +1,10 @@
-package com.mairwunnx.projectessentialscooldown
+package com.mairwunnx.projectessentials.cooldown
 
-import com.mairwunnx.projectessentialscooldown.essentials.CommandsAliases
-import com.mairwunnx.projectessentialscore.extensions.empty
-import com.mairwunnx.projectessentialscore.extensions.sendMsg
-import com.mairwunnx.projectessentialscore.extensions.source
-import com.mairwunnx.projectessentialscore.helpers.COOLDOWN_NOT_EXPIRED
+import com.mairwunnx.projectessentials.cooldown.essentials.CommandsAliases
+import com.mairwunnx.projectessentials.core.extensions.empty
+import com.mairwunnx.projectessentials.core.extensions.sendMsg
+import com.mairwunnx.projectessentials.core.extensions.source
+import com.mairwunnx.projectessentials.core.helpers.COOLDOWN_NOT_EXPIRED
 import net.minecraftforge.event.CommandEvent
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger

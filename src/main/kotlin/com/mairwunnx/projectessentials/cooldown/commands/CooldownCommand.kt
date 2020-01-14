@@ -1,11 +1,11 @@
-package com.mairwunnx.projectessentialscooldown.commands
+package com.mairwunnx.projectessentials.cooldown.commands
 
-import com.mairwunnx.projectessentialscooldown.CooldownConfig
-import com.mairwunnx.projectessentialscooldown.EntryPoint
-import com.mairwunnx.projectessentialscore.extensions.isPlayerSender
-import com.mairwunnx.projectessentialscore.extensions.sendMsg
-import com.mairwunnx.projectessentialscore.helpers.PERMISSION_LEVEL
-import com.mairwunnx.projectessentialspermissions.permissions.PermissionsAPI
+import com.mairwunnx.projectessentials.cooldown.CooldownConfig
+import com.mairwunnx.projectessentials.cooldown.EntryPoint
+import com.mairwunnx.projectessentials.core.extensions.isPlayerSender
+import com.mairwunnx.projectessentials.core.extensions.sendMsg
+import com.mairwunnx.projectessentials.core.helpers.PERMISSION_LEVEL
+import com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.builder.LiteralArgumentBuilder
 import com.mojang.brigadier.context.CommandContext

@@ -1,7 +1,7 @@
-package com.mairwunnx.projectessentialscooldown
+package com.mairwunnx.projectessentials.cooldown
 
 import com.google.common.collect.HashBasedTable
-import com.mairwunnx.projectessentialscooldown.essentials.CommandsAliases
+import com.mairwunnx.projectessentials.cooldown.essentials.CommandsAliases
 import java.time.Duration
 import java.time.ZonedDateTime
 import kotlin.time.ExperimentalTime

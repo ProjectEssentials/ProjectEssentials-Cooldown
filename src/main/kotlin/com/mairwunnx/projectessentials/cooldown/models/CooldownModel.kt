@@ -1,4 +1,4 @@
-package com.mairwunnx.projectessentialscooldown.models
+package com.mairwunnx.projectessentials.cooldown.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

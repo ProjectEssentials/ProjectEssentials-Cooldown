@@ -1,6 +1,6 @@
-package com.mairwunnx.projectessentialscooldown.essentials
+package com.mairwunnx.projectessentials.cooldown.essentials
 
-import com.mairwunnx.projectessentialscore.extensions.empty
+import com.mairwunnx.projectessentials.core.extensions.empty
 import net.minecraft.util.Tuple
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger

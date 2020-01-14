@@ -1,7 +1,7 @@
-package com.mairwunnx.projectessentialscooldown
+package com.mairwunnx.projectessentials.cooldown
 
-import com.mairwunnx.projectessentialscooldown.models.CooldownModel
-import com.mairwunnx.projectessentialscore.helpers.MOD_CONFIG_FOLDER
+import com.mairwunnx.projectessentials.cooldown.models.CooldownModel
+import com.mairwunnx.projectessentials.core.helpers.MOD_CONFIG_FOLDER
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration

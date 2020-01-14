@@ -1,7 +1,7 @@
-package com.mairwunnx.projectessentialscooldown
+package com.mairwunnx.projectessentials.cooldown
 
-import com.mairwunnx.projectessentialscooldown.commands.CooldownCommand
-import com.mairwunnx.projectessentialscore.EssBase
+import com.mairwunnx.projectessentials.cooldown.commands.CooldownCommand
+import com.mairwunnx.projectessentials.core.EssBase
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.CommandEvent

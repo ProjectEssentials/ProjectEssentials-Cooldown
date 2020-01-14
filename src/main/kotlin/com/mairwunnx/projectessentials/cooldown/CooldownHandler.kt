@@ -1,8 +1,8 @@
-package com.mairwunnx.projectessentialscooldown
+package com.mairwunnx.projectessentials.cooldown
 
-import com.mairwunnx.projectessentialscore.extensions.commandName
-import com.mairwunnx.projectessentialscore.extensions.player
-import com.mairwunnx.projectessentialspermissions.permissions.PermissionsAPI
+import com.mairwunnx.projectessentials.core.extensions.commandName
+import com.mairwunnx.projectessentials.core.extensions.player
+import com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI
 import net.minecraftforge.event.CommandEvent
 
 internal object CooldownHandler {
