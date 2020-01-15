@@ -31,11 +31,3 @@ Additional information:
     - kotlinx serialization version: 0.14.0
     - target jvm version: 1.8
 ```
-
-### After you got the dependencies and the library itself:
-
-# [getting started with read the documentation](./documentation/in-using.md)
-
-### **Note:** this library is written in kotlin, but in java you can work with this API too, but there may be some not beautiful moments. One of these points is that you will see all the properties and fields with internal modifiers (in my library).
-
-> ## Made with 💕 by [MairwunNx](https://mairwunnx.github.io/)
