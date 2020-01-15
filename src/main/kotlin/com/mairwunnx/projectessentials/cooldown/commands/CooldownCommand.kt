@@ -2,12 +2,12 @@ package com.mairwunnx.projectessentials.cooldown.commands
 
 import com.mairwunnx.projectessentials.cooldown.CooldownConfig
 import com.mairwunnx.projectessentials.cooldown.EntryPoint
+import com.mairwunnx.projectessentials.cooldown.EntryPoint.Companion.hasPermission
 import com.mairwunnx.projectessentials.core.extensions.isPlayerSender
 import com.mairwunnx.projectessentials.core.extensions.sendMsg
 import com.mairwunnx.projectessentials.core.helpers.PERMISSION_LEVEL
-import com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI
 import com.mojang.brigadier.CommandDispatcher
-import com.mojang.brigadier.builder.LiteralArgumentBuilder
+import com.mojang.brigadier.builder.LiteralArgumentBuilder.literal
 import com.mojang.brigadier.context.CommandContext
 import net.minecraft.command.CommandSource
 import net.minecraft.command.Commands
@@ -19,37 +19,32 @@ object CooldownCommand {
     fun register(
         dispatcher: CommandDispatcher<CommandSource>
     ) {
-        logger.info("    - register \"/essentials cooldown [...]\" command ...")
-
         dispatcher.register(
-            LiteralArgumentBuilder.literal<CommandSource>("essentials").then(
-                Commands.literal("cooldown").executes {
-                    return@executes versionExecute(it)
-                }.then(Commands.literal("reload").executes {
-                    return@executes reloadExecute(it)
-                }).then(Commands.literal("save").executes {
-                    return@executes saveExecute(it)
-                }).then(Commands.literal("version").executes {
-                    return@executes versionExecute(it)
-                })
-            )
+            literal<CommandSource>("cooldown").executes {
+                return@executes versionExecute(it)
+            }.then(Commands.literal("reload").executes {
+                return@executes reloadExecute(it)
+            }).then(Commands.literal("save").executes {
+                return@executes saveExecute(it)
+            }).then(Commands.literal("version").executes {
+                return@executes versionExecute(it)
+            })
         )
     }
 
     private fun versionExecute(c: CommandContext<CommandSource>): Int {
         var isServerSender = false
         val commandSender = c.source
-        val commandSenderNickName = if (c.isPlayerSender()) {
-            c.source.asPlayer().name.string
+        val commandSenderPlayer = if (c.isPlayerSender()) {
+            c.source.asPlayer()
         } else {
             isServerSender = true
-            "server"
+            null
         }
 
         if (isServerSender ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.cooldown") ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.stuff") ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.cooldown.version")
+            hasPermission(commandSenderPlayer, "ess.cooldown") ||
+            hasPermission(commandSenderPlayer, "ess.cooldown.version")
         ) {
             if (isServerSender) {
                 logger.info("        ${EntryPoint.modInstance.modName}")
@@ -59,6 +54,7 @@ object CooldownCommand {
                 logger.info("Target Minecraft version: ${EntryPoint.modInstance.modTargetMC}")
                 logger.info("Source code: ${EntryPoint.modInstance.modSources}")
                 logger.info("Telegram chat: ${EntryPoint.modInstance.modTelegram}")
+                logger.info("CurseForge: ${EntryPoint.modInstance.modCurseForge}")
             } else {
                 sendMsg(
                     "cooldown",
@@ -70,15 +66,16 @@ object CooldownCommand {
                     EntryPoint.modInstance.modTargetForge,
                     EntryPoint.modInstance.modTargetMC,
                     EntryPoint.modInstance.modSources,
-                    EntryPoint.modInstance.modTelegram
+                    EntryPoint.modInstance.modTelegram,
+                    EntryPoint.modInstance.modCurseForge
                 )
             }
             return 0
         } else {
             logger.warn(
                 PERMISSION_LEVEL
-                    .replace("%0", commandSenderNickName)
-                    .replace("%1", "/essentials cooldown about")
+                    .replace("%0", commandSenderPlayer!!.name.string)
+                    .replace("%1", "/cooldown")
             )
             sendMsg("cooldown", commandSender, "version.restricted")
             return 0
@@ -88,20 +85,19 @@ object CooldownCommand {
     private fun reloadExecute(c: CommandContext<CommandSource>): Int {
         var isServerSender = false
         val commandSender = c.source
-        val commandSenderNickName = if (c.isPlayerSender()) {
-            c.source.asPlayer().name.string
+        val commandSenderPlayer = if (c.isPlayerSender()) {
+            c.source.asPlayer()
         } else {
             isServerSender = true
-            "server"
+            null
         }
 
         if (isServerSender ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.cooldown.reload") ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.stuff")
+            hasPermission(commandSenderPlayer, "ess.cooldown.reload")
         ) {
             CooldownConfig.load()
             if (isServerSender) {
-                logger.info("Successfully reloaded Project Essentials Cooldown configuration")
+                logger.info("Successfully reloaded Cooldown configuration")
             } else {
                 sendMsg("cooldown", commandSender, "reload.success")
             }
@@ -109,8 +105,8 @@ object CooldownCommand {
         } else {
             logger.warn(
                 PERMISSION_LEVEL
-                    .replace("%0", commandSenderNickName)
-                    .replace("%1", "/essentials cooldown reload")
+                    .replace("%0", commandSenderPlayer!!.name.string)
+                    .replace("%1", "/cooldown reload")
             )
             sendMsg("cooldown", commandSender, "reload.restricted")
             return 0
@@ -120,20 +116,19 @@ object CooldownCommand {
     private fun saveExecute(c: CommandContext<CommandSource>): Int {
         var isServerSender = false
         val commandSender = c.source
-        val commandSenderNickName = if (c.isPlayerSender()) {
-            c.source.asPlayer().name.string
+        val commandSenderPlayer = if (c.isPlayerSender()) {
+            c.source.asPlayer()
         } else {
             isServerSender = true
-            "server"
+            null
         }
 
         if (isServerSender ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.cooldown.save") ||
-            PermissionsAPI.hasPermission(commandSenderNickName, "ess.stuff")
+            hasPermission(commandSenderPlayer, "ess.cooldown.save")
         ) {
             CooldownConfig.save()
             if (isServerSender) {
-                logger.info("Successfully saved Project Essentials configuration")
+                logger.info("Successfully saved Cooldown configuration")
             } else {
                 sendMsg("cooldown", commandSender, "save.success")
             }
@@ -141,8 +136,8 @@ object CooldownCommand {
         } else {
             logger.warn(
                 PERMISSION_LEVEL
-                    .replace("%0", commandSenderNickName)
-                    .replace("%1", "/essentials cooldown save")
+                    .replace("%0", commandSenderPlayer!!.name.string)
+                    .replace("%1", "/cooldown save")
             )
             sendMsg("cooldown", commandSender, "save.restricted")
             return 0

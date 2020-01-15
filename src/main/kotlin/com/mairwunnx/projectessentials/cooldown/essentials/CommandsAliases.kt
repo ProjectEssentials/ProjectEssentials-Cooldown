@@ -34,7 +34,7 @@ object CommandsAliases {
             if (aliasesOfCommands != null &&
                 command in aliasesOfCommands
             ) {
-                logger.info("Command: $baseCommand; Cooldown: ${cooldownsMap[baseCommand]}")
+                logger.debug("Command: $baseCommand; Cooldown: ${cooldownsMap[baseCommand]}")
                 return Tuple(cooldownsMap[baseCommand], baseCommand)
             }
         }

@@ -2,6 +2,7 @@ package com.mairwunnx.projectessentials.cooldown
 
 import com.mairwunnx.projectessentials.cooldown.commands.CooldownCommand
 import com.mairwunnx.projectessentials.core.EssBase
+import com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.CommandEvent
@@ -22,19 +23,29 @@ internal class EntryPoint : EssBase() {
         modVersion = "1.14.4-1.0.2.0"
         logBaseInfo()
         validateForgeVersion()
-        logger.debug("Register event bus for $modName mod ...")
         MinecraftForge.EVENT_BUS.register(this)
-        logger.info("Loading $modName permissions data ...")
         CooldownConfig.load()
     }
 
     internal companion object {
         internal lateinit var modInstance: EntryPoint
+        var permissionsInstalled: Boolean = false
+
+        fun hasPermission(player: ServerPlayerEntity?, node: String, opLevel: Int = 4): Boolean =
+            if (permissionsInstalled) {
+                if (player == null) {
+                    true
+                } else {
+                    PermissionsAPI.hasPermission(player.name.string, node)
+                }
+            } else {
+                player?.server?.opPermissionLevel ?: 4 >= opLevel
+            }
     }
 
     @SubscribeEvent
     fun onServerStarting(it: FMLServerStartingEvent) {
-        logger.info("$modName starting mod loading ...")
+        loadAdditionalModules()
         CooldownCommand.register(it.server.commandManager.dispatcher)
     }
 
@@ -48,8 +59,17 @@ internal class EntryPoint : EssBase() {
     @Suppress("UNUSED_PARAMETER")
     @SubscribeEvent
     internal fun onServerStopping(it: FMLServerStoppingEvent) {
-        logger.info("Shutting down $modName mod ...")
-        logger.info("    - Saving cooldown configuration ...")
         CooldownConfig.save()
+    }
+
+    private fun loadAdditionalModules() {
+        try {
+            Class.forName(
+                "com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI"
+            )
+            permissionsInstalled = true
+        } catch (_: ClassNotFoundException) {
+            // ignored
+        }
     }
 }
