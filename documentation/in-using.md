@@ -42,31 +42,31 @@ After that, go into a single world, then try to write the `/essentials cooldown`
 We just made the commands for you:
 
 ```
-/essentials cooldown
+/cooldown
 
 OR
 
-/essentials cooldown version
+/cooldown version
 
 - description: base command of cooldown api module; just send you about message.
 
-- permission: ess.cooldown or ess.stuff or ess.cooldown.version
+- permission: ess.cooldown or ess.cooldown.version
 ```
 
 ```
-/essentials cooldown save
+/cooldown save
 
 - description: save cooldown configuration.
 
-- permission: ess.cooldown.save or ess.stuff
+- permission: ess.cooldown.save
 ```
 
 ```
-/essentials cooldown reload
+/cooldown reload
 
 - description: reload cooldown configuration !!!without saving.
 
-- permission: ess.cooldown.save or ess.stuff
+- permission: ess.cooldown.save
 ```
 
 ## 2. For developing and developers:

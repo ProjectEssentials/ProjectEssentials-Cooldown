@@ -19,7 +19,7 @@ dependencies {
     compile(
         group: "com.github.projectessentials",
         name: "ProjectEssentials-Cooldown",
-        version: "v1.14.4-1.0.1.0"
+        version: "v1.14.4-1.0.2.0"
     )
 }
 ```
@@ -38,7 +38,7 @@ dependencies {
 <dependency>
 	<groupId>com.github.projectessentials</groupId>
 	<artifactId>ProjectEssentials-Cooldown</artifactId>
-	<version>v1.14.4-1.0.1.0</version>
+	<version>v1.14.4-1.0.2.0</version>
 </dependency>
 ```
 
@@ -63,8 +63,8 @@ dependencies {
 
 ```
 Additional information:
-    - kotlin-std lib version: 1.3.50
-    - kotlinx serialization version: 0.12.0
+    - kotlin-std lib version: 1.3.61
+    - kotlinx serialization version: 0.14.0
     - target jvm version: 1.8
 ```
 
