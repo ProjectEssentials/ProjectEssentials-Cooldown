@@ -20,7 +20,7 @@ Currently mod branch supported forge version `28.0.X` and `28.1.X` (Minecraft `1
 
 ### Credits
 
-- Author: Pavel Erokhin [@mairwunnx](https://github.com/mairwunnx)
+- Author: Pavel Erokhin @mairwunnx
 - [JetBrains](https://www.jetbrains.com/) for Licenses
 - Inspired by: [EssentialsX](https://github.com/EssentialsX)
 - And you for contributing or using it.
