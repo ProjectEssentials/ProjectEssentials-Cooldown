@@ -1,65 +1,29 @@
-## ⌛ Project Essentials: CooldownAPI
+## Project Essentials Cooldown: cooldown module for Project Essentials.
 
-[![](https://jitpack.io/v/projectessentials/ProjectEssentials-Cooldown.svg)](https://jitpack.io/#projectessentials/ProjectEssentials-Cooldown)
-![GitHub](https://img.shields.io/github/license/ProjectEssentials/ProjectEssentials-Cooldown)
+<img src="./assets/cooldown_social_logo.jpg">
 
-> ## Cooldown API for Forge mod commands.
+### What is it
 
-#### ❗ Compatibility with forge `28.0.X` version.
+This module is responsible for cooldown Minecraft teams. The mod adds a delay for the use of commands, prevents command-spamming and limits the number of uses for a certain time. A mod can also create cooldown for command aliases. The delay and other settings are controlled by the configuration of the mod. Useful information and documentation are [here](documentation/for-developers.md).
 
-## 🧐 Install using Gradle (for developers):
-> ##### If your project uses Gradle as Build Tool, then use the code below to add dependencies:
+You can also use the API, for example, as a delay in the use of an item or the like, but instead of commands, you can use identifiers. (This is one of the ideas for use by third-party developers).
 
-```groovy
-repositories {
-    maven { url("https://jitpack.io") }
-}
+### One more step
 
-dependencies {
-    compile(
-        group: "com.github.projectessentials",
-        name: "ProjectEssentials-Cooldown",
-        version: "v1.14.4-1.0.2.0"
-    )
-}
-```
+#### [Download mod](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/releases/download/v1.14.4-1.0.2.0/Project.Essentials.Cooldown-1.14.4-1.0.2.0.jar) · [How to install](documentation/for-players.md) · [Troubleshooting](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/issues/new/choose) · [Change log](./changelog.md)
 
-## 🤔 Install using Maven (for developers):
-> ##### If your project uses Maven as Build Tool, then use the code below to add dependencies:
+<a href="https://ko-fi.com/mairwunnx" target="_blank"><img src="./assets/support_social.png"></a>
 
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
+### Compatibility
 
-<dependency>
-	<groupId>com.github.projectessentials</groupId>
-	<artifactId>ProjectEssentials-Cooldown</artifactId>
-	<version>v1.14.4-1.0.2.0</version>
-</dependency>
-```
+Currently mod branch supported forge version `28.0.X` and `28.1.X` (Minecraft `1.14.4`).
 
-## 🎮 Installation instruction (for playing):
-> ##### Just move Project Essentials Cooldown-1.14.4-1.X.X.X.jar to mods directory:
+### Credits
 
-> ##### Important note: don't forget install mod dependencies!
-  - core: https://github.com/ProjectEssentials/ProjectEssentials-Core/releases
-  - permissions: https://github.com/ProjectEssentials/ProjectEssentials-Permissions/releases
-
-```
-.
-├── assets
-├── config
-├── libraries
-├── mods (that's how it should be)
-│   ├── Project Essentials Core-MOD-1.14.4-1.X.X.X.jar.
-│   ├── Project Essentials Permissions-1.14.4-1.X.X.X.jar.
-│   └── Project Essentials Cooldown-1.14.4-1.X.X.X.jar.
-└── ...
-```
+- Author: Pavel Erokhin [@mairwunnx](https://github.com/mairwunnx)
+- [JetBrains](https://www.jetbrains.com/) for Licenses
+- Inspired by: [EssentialsX](https://github.com/EssentialsX)
+- And you for contributing or using it.
 
 ```
 Additional information:
