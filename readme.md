@@ -4,7 +4,7 @@
 
 ### What is it
 
-This module is responsible for cooldown Minecraft teams. The mod adds a delay for the use of commands, prevents command-spamming and limits the number of uses for a certain time. A mod can also create cooldown for command aliases. The delay and other settings are controlled by the configuration of the mod. Useful information and documentation are [here](documentation/for-developers.md).
+This module is responsible for cooldown Minecraft commands. The mod adds a delay for the use of commands, prevents command-spamming and limits the number of uses for a certain time. A mod can also create cooldown for command aliases. The delay and other settings are controlled by the configuration of the mod. Useful information and documentation are [here](documentation/for-developers.md).
 
 You can also use the API, for example, as a delay in the use of an item or the like, but instead of commands, you can use identifiers. (This is one of the ideas for use by third-party developers).
 
