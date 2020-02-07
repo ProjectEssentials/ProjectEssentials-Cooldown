@@ -10,13 +10,13 @@ You can also use the API, for example, as a delay in the use of an item or the l
 
 ### One more step
 
-#### [Download mod](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/releases/download/v1.14.4-1.0.2.0/Project.Essentials.Cooldown-1.14.4-1.0.2.0.jar) · [How to install](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#how-to-install) · [Commands](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#commands) · [Configuration](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#configuration) · [API Usage](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#applying-aliases) · [Troubleshooting](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/issues/new/choose) · [Change log](./changelog.md)
+#### [Download mod](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/releases/download/v1.15.2-1.0.0/Project.Essentials.Cooldown-1.15.2-1.0.0.jar) · [How to install](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#how-to-install) · [Commands](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#commands) · [Configuration](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#configuration) · [API Usage](https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown#applying-aliases) · [Troubleshooting](https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/issues/new/choose) · [Change log](./changelog.md)
 
 <a href="https://ko-fi.com/mairwunnx" target="_blank"><img src="./assets/support_social.png"></a>
 
 ### Compatibility
 
-Currently mod branch supported forge version `28.0.X` and `28.1.X` (Minecraft `1.14.4`).
+Currently mod branch supported forge version `31.0.X` and `31.1.X` (Minecraft `1.15.2`).
 
 ### Credits
 
