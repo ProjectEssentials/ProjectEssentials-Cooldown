@@ -39,7 +39,7 @@ internal class EntryPoint : EssBase() {
                     PermissionsAPI.hasPermission(player.name.string, node)
                 }
             } else {
-                player?.server?.opPermissionLevel ?: 4 >= opLevel
+                player?.hasPermissionLevel(opLevel) ?: true
             }
     }
 
