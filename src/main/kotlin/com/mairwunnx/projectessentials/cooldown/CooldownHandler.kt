@@ -9,7 +9,7 @@ internal object CooldownHandler {
     internal fun handle(event: CommandEvent) {
         val commandName = event.commandName
         val commandSender = event.player
-        val commandSenderNickName = commandSender.name.string
+        val commandSenderNickName = commandSender!!.name.string
         try {
             if (
                 !CooldownConfig.config.ignoredPlayers.contains(commandSenderNickName) &&
