@@ -1,5 +1,7 @@
 > ## Installation instructions.
 
+DEPRECATED !!! See https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown
+
 For start the modification, you need installed Forge, it is desirable that the version matches the supported versions. You can download Forge from the [link](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.14.4.html).
 Move the downloaded mod to the `mods` folder (installation example below).
 
