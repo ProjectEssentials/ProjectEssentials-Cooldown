@@ -1,5 +1,7 @@
 > ## Documentation for basic use of the CooldownAPI.
 
+DEPRECATED!!! SEE: https://mairwunnx.gitbook.io/project-essentials/project-essentials-cooldown
+
 ### Getting Cooldown API as dependency
 
 ```groovy
