@@ -3,9 +3,9 @@ package com.mairwunnx.projectessentials.cooldown.commands
 import com.mairwunnx.projectessentials.cooldown.CooldownConfig
 import com.mairwunnx.projectessentials.cooldown.EntryPoint
 import com.mairwunnx.projectessentials.cooldown.EntryPoint.Companion.hasPermission
+import com.mairwunnx.projectessentials.cooldown.sendMessage
 import com.mairwunnx.projectessentials.core.extensions.isPlayerSender
-import com.mairwunnx.projectessentials.core.extensions.sendMsg
-import com.mairwunnx.projectessentials.core.helpers.PERMISSION_LEVEL
+import com.mairwunnx.projectessentials.core.helpers.throwPermissionLevel
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.builder.LiteralArgumentBuilder.literal
 import com.mojang.brigadier.context.CommandContext
@@ -56,8 +56,7 @@ object CooldownCommand {
                 logger.info("Telegram chat: ${EntryPoint.modInstance.modTelegram}")
                 logger.info("CurseForge: ${EntryPoint.modInstance.modCurseForge}")
             } else {
-                sendMsg(
-                    "cooldown",
+                sendMessage(
                     commandSender,
                     "version.success",
                     EntryPoint.modInstance.modName,
@@ -72,12 +71,8 @@ object CooldownCommand {
             }
             return 0
         } else {
-            logger.warn(
-                PERMISSION_LEVEL
-                    .replace("%0", commandSenderPlayer!!.name.string)
-                    .replace("%1", "/cooldown")
-            )
-            sendMsg("cooldown", commandSender, "version.restricted")
+            throwPermissionLevel(commandSenderPlayer!!.name.string, "cooldown")
+            sendMessage(commandSender, "version.restricted")
             return 0
         }
     }
@@ -99,16 +94,12 @@ object CooldownCommand {
             if (isServerSender) {
                 logger.info("Successfully reloaded Cooldown configuration")
             } else {
-                sendMsg("cooldown", commandSender, "reload.success")
+                sendMessage(commandSender, "reload.success")
             }
             return 0
         } else {
-            logger.warn(
-                PERMISSION_LEVEL
-                    .replace("%0", commandSenderPlayer!!.name.string)
-                    .replace("%1", "/cooldown reload")
-            )
-            sendMsg("cooldown", commandSender, "reload.restricted")
+            throwPermissionLevel(commandSenderPlayer!!.name.string, "cooldown reload")
+            sendMessage(commandSender, "reload.restricted")
             return 0
         }
     }
@@ -130,16 +121,12 @@ object CooldownCommand {
             if (isServerSender) {
                 logger.info("Successfully saved Cooldown configuration")
             } else {
-                sendMsg("cooldown", commandSender, "save.success")
+                sendMessage(commandSender, "save.success")
             }
             return 0
         } else {
-            logger.warn(
-                PERMISSION_LEVEL
-                    .replace("%0", commandSenderPlayer!!.name.string)
-                    .replace("%1", "/cooldown save")
-            )
-            sendMsg("cooldown", commandSender, "save.restricted")
+            throwPermissionLevel(commandSenderPlayer!!.name.string, "cooldown save")
+            sendMessage(commandSender, "save.restricted")
             return 0
         }
     }
