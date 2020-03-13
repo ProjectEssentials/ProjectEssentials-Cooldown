@@ -21,6 +21,7 @@ object CooldownAPI {
      * @since 1.14.4-1.0.0.0
      */
     const val DEFAULT_COOLDOWN = 5
+
     /**
      * Default cooldown literals.
      * It literals what replaced cooldowns for
@@ -88,7 +89,7 @@ object CooldownAPI {
      * @return left cooldown time in seconds for command.
      * @since 1.14.4-1.0.0.0
      */
-    @UseExperimental(ExperimentalTime::class)
+    @OptIn(ExperimentalTime::class)
     fun getCooldownTimeLeft(nickname: String, command: String): Double {
         if (cooldownTable.get(nickname, command) != null) {
             val commandExecutionTime = cooldownTable.get(nickname, command)
