@@ -23,9 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - dokka updated to `0.10.1`.
 - kotlinx serialization updated to `0.20.0`.
 
-### Fixed
-- Incorrect permissions checking.
-
 ### Removed
 - `UseExperimental` annotation from `CooldownConfig` class.
 - curseforge removed from dependency repositories.
