@@ -2,7 +2,6 @@ package com.mairwunnx.projectessentials.cooldown
 
 import com.mairwunnx.projectessentials.cooldown.essentials.CommandsAliases
 import com.mairwunnx.projectessentials.core.extensions.empty
-import com.mairwunnx.projectessentials.core.extensions.sendMsg
 import com.mairwunnx.projectessentials.core.extensions.source
 import com.mairwunnx.projectessentials.core.helpers.COOLDOWN_NOT_EXPIRED
 import net.minecraftforge.event.CommandEvent
@@ -65,8 +64,7 @@ internal object CooldownUtils {
                     .replace("%0", commandSenderNickName)
                     .replace("%1", command)
             )
-            sendMsg(
-                "cooldown",
+            sendMessage(
                 commandEvent.source,
                 "not_expired",
                 commandCooldown.minus(

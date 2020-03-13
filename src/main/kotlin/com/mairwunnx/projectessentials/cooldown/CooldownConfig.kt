@@ -3,12 +3,10 @@ package com.mairwunnx.projectessentials.cooldown
 import com.mairwunnx.projectessentials.cooldown.models.CooldownModel
 import com.mairwunnx.projectessentials.core.helpers.MOD_CONFIG_FOLDER
 import com.mairwunnx.projectessentials.core.helpers.jsonInstance
-import kotlinx.serialization.UnstableDefault
 import org.apache.logging.log4j.LogManager
 import java.io.File
 import java.io.FileNotFoundException
 
-@UseExperimental(UnstableDefault::class)
 internal object CooldownConfig {
     private val logger = LogManager.getLogger()
     internal var config = CooldownModel()
