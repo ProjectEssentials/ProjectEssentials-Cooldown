@@ -2,6 +2,8 @@ package com.mairwunnx.projectessentials.cooldown
 
 import com.mairwunnx.projectessentials.cooldown.commands.CooldownCommand
 import com.mairwunnx.projectessentials.core.EssBase
+import com.mairwunnx.projectessentials.core.configuration.localization.LocalizationConfigurationUtils
+import com.mairwunnx.projectessentials.core.localization.processLocalizations
 import com.mairwunnx.projectessentials.permissions.permissions.PermissionsAPI
 import net.minecraft.entity.player.ServerPlayerEntity
 import net.minecraftforge.common.MinecraftForge
@@ -25,6 +27,19 @@ internal class EntryPoint : EssBase() {
         validateForgeVersion()
         MinecraftForge.EVENT_BUS.register(this)
         CooldownConfig.load()
+        loadLocalization()
+    }
+
+    private fun loadLocalization() {
+        if (LocalizationConfigurationUtils.getConfig().enabled) {
+            processLocalizations(
+                EntryPoint::class.java, listOf(
+                    "/assets/projectessentialscooldown/lang/de_de.json",
+                    "/assets/projectessentialscooldown/lang/en_us.json",
+                    "/assets/projectessentialscooldown/lang/ru_ru.json"
+                )
+            )
+        }
     }
 
     internal companion object {
