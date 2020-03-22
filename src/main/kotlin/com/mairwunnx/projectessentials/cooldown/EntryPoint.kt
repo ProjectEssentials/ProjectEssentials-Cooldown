@@ -22,7 +22,7 @@ internal class EntryPoint : EssBase() {
 
     init {
         modInstance = this
-        modVersion = "1.14.4-1.0.4"
+        modVersion = "1.14.4-1.0.5"
         logBaseInfo()
         validateForgeVersion()
         MinecraftForge.EVENT_BUS.register(this)
@@ -61,7 +61,7 @@ internal class EntryPoint : EssBase() {
     @SubscribeEvent
     fun onServerStarting(it: FMLServerStartingEvent) {
         loadAdditionalModules()
-        CooldownCommand.register(it.server.commandManager.dispatcher)
+        CooldownCommand.register(it.commandDispatcher)
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

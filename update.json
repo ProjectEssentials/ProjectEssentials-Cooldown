@@ -1,6 +1,7 @@
 {
   "homepage": "https://github.com/ProjectEssentials/ProjectEssentials-Cooldown",
   "1.14.4": {
+    "1.14.4-1.0.5": "Changelog for 1.0.5 https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/blob/MC-1.14.4/changelog.md#1144-105---2020-03-22",
     "1.14.4-1.0.4": "Changelog for 1.0.4 https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/blob/MC-1.14.4/changelog.md#1144-104---2020-03-13",
     "1.14.4-1.0.3": "Changelog for 1.0.3 https://github.com/ProjectEssentials/ProjectEssentials-Cooldown/blob/MC-1.14.4/changelog.md#1144-103---2020-02-08",
     "1.14.4-1.0.2.0": " - Added curseforge link in `/cooldown about` command.\n - Simplified code for creating directory.\n - Removed redundant information logging.\n - Usings optimal JsonConfiguration from core module.\n - Debug information now prints in debug log, not info.\n - Now cooldown module not depends on Permissions module.\n - Simplified cooldown commands.\n - Updated essentials core dependency.\n - Added german translations by @BixelPitch\n - Removed java plugin from build script.\n - Removed permissions from mandatory dependencies.\n - Package name fixed. [BREAKING CHANGES!]\n - Updated gradle wrapper to 5.6.4.\n - Gradle file cleanup.\n - Updated version number.",
@@ -8,7 +9,7 @@
     "1.14.4-1.0.0.0": " - Initial release of CooldownAPI as Project Essentials part."
   },
   "promos": {
-    "1.14.4-latest": "1.14.4-1.0.4",
-    "1.14.4-recommended": "1.14.4-1.0.4"
+    "1.14.4-latest": "1.14.4-1.0.5",
+    "1.14.4-recommended": "1.14.4-1.0.5"
   }
 }
