@@ -1,0 +1,9 @@
+{
+  "project_essentials_cooldown.not_expired": "§c你 §7当前不能使用 §c这个命令，稍等 §7%s §c秒。",
+  "project_essentials_cooldown.reload.restricted": "§c你 §7没有权限 §c重新加载cooldown配置文件。",
+  "project_essentials_cooldown.reload.success": "§6Cooldown 配置文件 §7已成功 §6重载。",
+  "project_essentials_cooldown.save.restricted": "§c你 §7没有权限 §c保存cooldown配置文件。",
+  "project_essentials_cooldown.save.success": "§6Cooldown 配置文件 §7已成功 §6保存。",
+  "project_essentials_cooldown.version.restricted": "§c你 §7没有权限 §c查看cooldown版本。",
+  "project_essentials_cooldown.version.success": "          §6%s\n§c版本: §7%s\n§c维护者: §7%s\n§c目标Forge version: §7%s\n§c目标Minecraft version: §7%s\n§c源代码: §7%s§7\n§cTelegram聊天室: §7%s\n§cCurseForge: §7%s"
+}
